@@ -1,0 +1,40 @@
+<div>
+  <%= link_to "sign_out", destroy_user_session_path, method: :delete %>
+
+</div>
+
+
+
+
+<h1>Listing glasses</h1>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Company</th>
+    <th>Price</th>
+    <th>Factor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @glasses.each do |glass| %>
+  <tr>
+    <td><%= glass.title %></td>
+    <td><%= glass.description %></td>
+    <td><%= glass.company %></td>
+    <td><%= glass.price %></td>
+    <td><%= glass.factor %></td>
+    <td><%= link_to 'Show', glass %></td>
+    <td><%= link_to 'Edit', edit_glass_path(glass) %></td>
+    <td><%= link_to 'Destroy', glass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Glass', new_glass_path %>
